@@ -10,12 +10,12 @@ import telran.daily_farm.order.api.dto.FarmSetRequestForOrderDto;
 import telran.daily_farm.order.api.dto.FarmSetResponseForOrderDto;
 
 
-@FeignClient(name = "farmSetService", url = "http://localhost:8080/farm-set")
+@FeignClient(name = "daily-farm")
 public interface FarmSetFeignClient {
 
-	@PutMapping("/order")
+	@PutMapping("/farm-set/order")
 	FarmSetResponseForOrderDto decreaseStock(@RequestBody FarmSetRequestForOrderDto request);
 	
-	@PutMapping("/cancel_order")
+	@PutMapping("/farm-set/cancel_order")
 	void increaseStock(@RequestBody FarmSetRequestForCancelOrderDto request);
 }
