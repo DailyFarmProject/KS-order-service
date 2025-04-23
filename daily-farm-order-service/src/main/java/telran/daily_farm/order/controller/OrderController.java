@@ -2,7 +2,7 @@ package telran.daily_farm.order.controller;
 
 
 import org.springframework.http.*;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +39,9 @@ public class OrderController {
 		
 		return  ResponseEntity.ok(response);
 	}
-	
+	@GetMapping("/order/test")
+	public String test() {
+		return "Order service is working through Gateway!";
+	}
 
 }
