@@ -2,11 +2,12 @@ package telran.daily_farm.order.controller;
 
 
 import org.springframework.http.*;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +29,7 @@ public class OrderController {
 	    
    // @PreAuthorize("hasRole('ROLE_CUSTOMER')")
 	@PostMapping(CREATE_ORDER)
-	public ResponseEntity<CreateOrderResponseDto> createOrder(@RequestBody CreateOrderRequestDto request
+	public ResponseEntity<CreateOrderResponseDto> createOrder(@Valid @RequestBody CreateOrderRequestDto request
 //			,@AuthenticationPrincipal UserDetailsWithId user, @RequestHeader("Authorization") String token
 			) {
 		
@@ -39,6 +40,9 @@ public class OrderController {
 		
 		return  ResponseEntity.ok(response);
 	}
-	
+	@GetMapping("/order/test")
+	public String test() {
+		return "Order service is working through Gateway!";
+	}
 
 }

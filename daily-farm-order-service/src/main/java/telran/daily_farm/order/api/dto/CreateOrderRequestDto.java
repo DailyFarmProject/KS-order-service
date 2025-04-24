@@ -5,6 +5,7 @@ package telran.daily_farm.order.api.dto;
 import java.util.UUID;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -12,9 +13,9 @@ import lombok.Getter;
 @Getter
 public class CreateOrderRequestDto {
 	
-	@NotBlank
+	@NotNull
 	private UUID farmSetId;
 	
-	@NotBlank
+	@NotNull
 	private UUID customerId;
 }
